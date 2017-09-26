@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="uft-8">
+    <title>demo</title>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script type="text/javascript" src="react/build/react.js"></script>
+    <script type="text/javascript" src="react/build/react-dom.js"></script>
+    <script>
+        var component = React.createClass({
+            propTypes: {
+                type: React.PropTypes.string.isRequired
+                    // Object.keys(React.PropTypes).join("\n") 检测可用属性列表
+            },
+            render: function() {
+                // return React.createElement("p", null, "today is a good day")
+                return React.DOM.p(null, "today is a " + this.props.type + " day")
+            }
+        });
+        ReactDOM.render(
+            React.createElement(component, {
+                type: "bad"
+            }),
+            document.getElementById("app")
+        )
+    </script>
+</body>
+
+</html>
